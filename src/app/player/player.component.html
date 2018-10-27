@@ -1,0 +1,11 @@
+<button mat-button (click)=startTrack()>start track</button>
+<div id="footer" class="player">
+  <div>
+    <button mat-icon-button (click)=toggleAudio()>
+        <mat-icon *ngIf="paused">play_circle_filled</mat-icon>
+        <mat-icon *ngIf="!paused">pause_circle_filled</mat-icon>
+    </button>
+  </div>
+  <div>{{track.name}}</div>
+  <div>{{track.artist}}</div>
+</div>
