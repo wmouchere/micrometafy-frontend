@@ -1,11 +1,26 @@
 <button mat-button (click)=startTrack()>start track</button>
 <div id="footer" class="player">
-  <div>
-    <button mat-icon-button (click)=toggleAudio()>
-        <mat-icon *ngIf="paused">play_circle_filled</mat-icon>
-        <mat-icon *ngIf="!paused">pause_circle_filled</mat-icon>
-    </button>
+  <div class="row">
+    <div class="col-1">
+      <button mat-button (click)=toggleAudio()>
+          <mat-icon class="svg" svgIcon="play" *ngIf="paused"></mat-icon>
+          <mat-icon class="svg" svgIcon="pause" *ngIf="!paused"></mat-icon>
+      </button>
+    </div>
+    <div class="col-2">
+      <div>
+        <mat-progress-bar #bar class="bar" mode="determinate" [value]="barProgress" (style.width)="progressBarWidth" (click)="barClick($event.layerX, bar._elementRef.nativeElement.clientWidth)"></mat-progress-bar>
+      </div>
+      <div class="trackInfoWrapper">
+        <div class="trackName">
+          {{elapsed | trackTime}}<br/>
+          {{track.name}}
+        </div>
+        <div class="trackArtist">
+          {{duration | trackTime}}<br/>
+          {{track.artist}}
+        </div>
+      </div>
+    </div>
   </div>
-  <div>{{track.name}}</div>
-  <div>{{track.artist}}</div>
 </div>

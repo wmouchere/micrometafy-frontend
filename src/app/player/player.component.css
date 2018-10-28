@@ -1,14 +1,56 @@
-/*.player {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 200px;
-}*/
-
 #footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 125px;
-    background: #6cf;
+    background: #dfdfdf;
+}
+
+.svg {
+    color: rgb(14.8%, 14.8%, 14.8%);
+    width: 72px;
+    height: 72px;
+}
+
+.row {
+    width:40%;
+    min-width: 500px;
+    margin: auto;
+}
+.col-1 {
+    width: 20%;
+    min-width: 20%;
+    text-align: center;
+    padding-top: 8px;
+    padding-bottom: 10px;
+}
+.col-2 {
+    padding: 10px;
+    padding-top: 18px;
+    width: 80%;
+}
+
+[class*="col-"] {
+    float: left;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.bar {
+    height: 8px;
+}
+.trackInfoWrapper {
+    margin-top: 8px;
+    display: flex;
+}
+.trackName {
+    flex: 1;
+    text-align: left;
+}
+.trackArtist {
+    flex: 1;
+    text-align: right;
 }

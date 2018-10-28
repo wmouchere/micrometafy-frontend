@@ -3,7 +3,8 @@
     position: relative;
 }
 #header {
-    background: #ff0;
+    background: rgb(14.8%, 14.8%, 14.8%);
+    color: white;
     padding: 10px;
 }
 

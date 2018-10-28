@@ -20,8 +20,8 @@ export class PlayerService {
 
   public nextTrack(track: Track): void {
     this.track.next(track);
-    this.audio.src = track.url;
     this.paused.next(false);
+    this.audio.src = track.url;
     this.audio.oncanplay = () => {
       this.audio.play();
       this.duration.next(this.audio.duration);
@@ -29,6 +29,17 @@ export class PlayerService {
     this.audio.ontimeupdate = () => {
       this.elapsed.next(this.audio.currentTime);
     };
+    this.audio.onplay = () => {
+      this.paused.next(false);
+    };
+    this.audio.onpause = () => {
+      this.paused.next(true);
+    }
+  }
+
+  public setTime(time: number) {
+    if(time < 0) time = 0;
+    this.audio.currentTime = time;
   }
 
   public toggleAudio(): void {
@@ -37,6 +48,5 @@ export class PlayerService {
     } else {
       this.audio.pause();
     }   
-    this.paused.next(this.audio.paused);
   }
 }
