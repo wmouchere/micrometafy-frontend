@@ -1,7 +1,7 @@
 table {
     padding-top: 20px;
     margin: auto;
-    min-width: 500px;
+    min-width: 700px;
 }
 
 th, td {
@@ -10,4 +10,25 @@ th, td {
 
 td {
     color: rgb(87, 87, 87);
+}
+
+.nameWrapper {
+    display: flex;
+}
+.nameFlex {
+    flex: 1;
+    margin-top:auto;
+    margin-bottom:auto;
+}
+.buttonFlex {
+    min-width: 40px;
+    text-align: right;
+    align-content: right;
+}
+
+.hovButton {
+    display: none;
+}
+.hoverable:hover .hovButton{
+    display: block;
 }

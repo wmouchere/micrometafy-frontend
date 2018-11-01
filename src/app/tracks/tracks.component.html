@@ -11,7 +11,18 @@
         <mat-icon>play_arrow</mat-icon>
       </button>
     </td>
-    <td>{{track.name}}</td>
+    <td class="hoverable">
+      <div class="nameWrapper">
+        <div class="nameFlex">
+          {{track.name}}
+        </div>
+        <div class="buttonFlex">
+          <button mat-icon-button class="hovButton">
+            <mat-icon>info</mat-icon>
+          </button>
+        </div>  
+      </div>
+    </td>
     <td class="author">{{track.author}}</td>
     <td>{{track.duration | trackTime:"ms"}}</td>
   </tr>
