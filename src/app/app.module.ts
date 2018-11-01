@@ -3,17 +3,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
-import { MatButtonModule, MatIconModule, MatProgressBarModule } from '@angular/material';
+import { MatButtonModule, MatIconModule, MatProgressBarModule, MatListModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { PlayerComponent } from './player/player.component';
 import { TrackTimePipe } from './track-time.pipe';
+import { TracksComponent } from './tracks/tracks.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlayerComponent,
     TrackTimePipe,
+    TracksComponent,
   ],
   imports: [
     BrowserModule,
@@ -21,6 +23,7 @@ import { TrackTimePipe } from './track-time.pipe';
     MatButtonModule,
     MatIconModule,
     MatProgressBarModule,
+    MatListModule,
     HttpClientModule,
   ],
   providers: [],

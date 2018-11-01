@@ -1,5 +1,7 @@
 export class Track {
-    url: string
-    name: string
-    artist: string
+    url: string;
+    name: string;
+    author: string;
+    duration: Number;
+    origin: string;
 }

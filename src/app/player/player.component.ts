@@ -61,8 +61,10 @@ export class PlayerComponent implements OnInit {
   startTrack(): void {
     this.playerService.nextTrack({
       name: "TestTitle",
-      artist: "TestArtist",
+      author: "TestAuthor",
       url: "assets/fixture.wav",
+      duration: 26500,
+      origin: "Spotify",
     });
   }
 

@@ -1,0 +1,18 @@
+<table class="tracks">
+  <tr>
+    <th></th>
+    <th>Title</th>
+    <th>Artist</th>
+    <th><mat-icon>timer</mat-icon></th>
+  </tr>
+  <tr *ngFor="let track of tracks">
+    <td>
+      <button mat-icon-button (click)="playTrack(track)">
+        <mat-icon>play_arrow</mat-icon>
+      </button>
+    </td>
+    <td>{{track.name}}</td>
+    <td class="author">{{track.author}}</td>
+    <td>{{track.duration | trackTime:"ms"}}</td>
+  </tr>
+</table>

@@ -12,3 +12,10 @@
     padding: 10px;
     padding-bottom: 125px;
 }
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #dfdfdf;
+}

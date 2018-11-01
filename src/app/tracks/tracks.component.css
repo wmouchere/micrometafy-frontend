@@ -1,0 +1,13 @@
+table {
+    padding-top: 20px;
+    margin: auto;
+    min-width: 500px;
+}
+
+th, td {
+    text-align: left;
+}
+
+td {
+    color: rgb(87, 87, 87);
+}
