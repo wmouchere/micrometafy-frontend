@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
-import { MatButtonModule, MatIconModule, MatProgressBarModule, MatListModule } from '@angular/material';
+import { MatButtonModule, MatIconModule, MatProgressBarModule, MatListModule, MatMenuModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { PlayerComponent } from './player/player.component';
@@ -24,6 +24,7 @@ import { TracksComponent } from './tracks/tracks.component';
     MatIconModule,
     MatProgressBarModule,
     MatListModule,
+    MatMenuModule,
     HttpClientModule,
   ],
   providers: [],

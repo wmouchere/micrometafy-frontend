@@ -13,9 +13,18 @@ export class PlayerService {
   public track: Subject<Track> = new Subject<Track>();
   public duration: Subject<number> = new Subject<number>();
   public elapsed: Subject<number> = new Subject<number>();
+  public _playlist: Track[] = [];
+  public playlist: Subject<Track[]> = new Subject<Track[]>();
 
   constructor() {
     this.audio = new Audio();
+    this.audio.onended = async () => {
+      if(this._playlist.length > 0) {
+        await new Promise(resolve => setTimeout(resolve, 400));
+        this.nextTrack(this._playlist.pop())
+        this.playlist.next(this._playlist);
+      }
+    }
   }
 
   public nextTrack(track: Track): void {
@@ -34,7 +43,7 @@ export class PlayerService {
     };
     this.audio.onpause = () => {
       this.paused.next(true);
-    }
+    };
   }
 
   public setTime(time: number) {
@@ -48,5 +57,14 @@ export class PlayerService {
     } else {
       this.audio.pause();
     }   
+  }
+
+  public addToPlaylist(track: Track): void {
+    if(this.audio.paused) {
+      this.nextTrack(track)
+    } else {
+      this._playlist.push(track);
+      this.playlist.next(this._playlist);
+    }
   }
 }

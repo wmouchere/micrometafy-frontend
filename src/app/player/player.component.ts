@@ -18,11 +18,13 @@ export class PlayerComponent implements OnInit {
   private elapsed: number;
   private barProgress: number;
   private progressBarWidth: number;
+  private playlist: Track[];
 
   private pausedSubscription: Subscription;
   private trackSubscription: Subscription;
   private durationSubscription: Subscription;
   private elapsedSubscription: Subscription;
+  private playlistSubscription: Subscription;
 
   constructor(private playerService: PlayerService, private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer) {
     iconRegistry.addSvgIcon('play',sanitizer.bypassSecurityTrustResourceUrl('assets/images/baseline-play_arrow-24px.svg'));
@@ -31,6 +33,7 @@ export class PlayerComponent implements OnInit {
     this.paused = true;
     this.duration = 0;
     this.elapsed = 0;
+    this.playlist = [];
   }
 
   ngOnInit() {
@@ -38,6 +41,7 @@ export class PlayerComponent implements OnInit {
     this.trackSubscription = this.playerService.track.subscribe(track => this.track = track);
     this.durationSubscription = this.playerService.duration.subscribe(time => this.duration = time);
     this.elapsedSubscription = this.playerService.elapsed.subscribe(time => {this.elapsed = time; this.barProgress = this.elapsed/this.duration * 100});
+    this.playlistSubscription = this.playerService.playlist.subscribe(playlist => this.playlist = playlist);
   }
 
   ngOnDestroy() {
@@ -45,10 +49,10 @@ export class PlayerComponent implements OnInit {
     this.trackSubscription.unsubscribe();
     this.durationSubscription.unsubscribe();
     this.elapsedSubscription.unsubscribe();
+    this.playlistSubscription.unsubscribe();
   }
 
   toggleAudio(): void {
-    console.log("toggleAudio()");
     if(this.track.url != null) {
       this.playerService.toggleAudio();
     }

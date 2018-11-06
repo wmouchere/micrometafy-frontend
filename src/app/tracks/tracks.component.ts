@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { PlayerService } from '../player.service';
+import { Track } from '../track';
 
 import { TRACKS } from '../mock-tracks';
 
@@ -18,8 +19,12 @@ export class TracksComponent implements OnInit {
   ngOnInit() {
   }
 
-  playTrack(track) {
+  playTrack(track: Track) {
     this.playerService.nextTrack(track);
+  }
+
+  playTrackNext(track: Track) {
+    this.playerService.addToPlaylist(track);
   }
 
 }

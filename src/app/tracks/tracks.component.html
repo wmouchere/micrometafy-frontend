@@ -18,8 +18,11 @@
           {{track.name}}
         </div>
         <div class="buttonFlex">
-          <button mat-icon-button class="hovButton">
-            <mat-icon>info</mat-icon>
+          <mat-menu #trackMenu="matMenu" overlapTrigger="true">
+              <button mat-menu-item (click)="playTrackNext(track)">Play next</button>
+          </mat-menu>
+          <button mat-icon-button class="hovButton" [matMenuTriggerFor]="trackMenu">
+            <mat-icon>more_horiz</mat-icon>
           </button>
         </div>  
       </div>

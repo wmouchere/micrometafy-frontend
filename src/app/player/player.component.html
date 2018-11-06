@@ -20,4 +20,10 @@
       </div>
     </div>
   </div>
+  <div class="col-3">
+      <mat-menu #playerMenu="matMenu" yPosition="above">
+          <button mat-menu-item *ngFor="let track of playlist">{{track.name}}</button>
+      </mat-menu>
+      <button mat-button [matMenuTriggerFor]="playerMenu"><mat-icon>menu</mat-icon></button>
+    </div>
 </div>
