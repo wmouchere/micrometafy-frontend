@@ -1,6 +1,7 @@
 #container {
-    min-height: 100%;
-    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 #header {
     background: rgb(14.8%, 14.8%, 14.8%);
@@ -9,13 +10,31 @@
 }
 
 #body {
-    padding: 10px;
-    padding-bottom: 125px;
+    flex: 1;
+    overflow-y: scroll;
 }
 
 #footer {
-    position: absolute;
-    bottom: 0;
     width: 100%;
     background: #dfdfdf;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
 }
