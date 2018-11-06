@@ -1,5 +1,5 @@
 table {
-    padding-top: 20px;
+    padding: 20px;
     margin: auto;
     min-width: 700px;
 }
@@ -31,4 +31,9 @@ td {
 }
 .hoverable:hover .hovButton{
     display: block;
+}
+
+.originLogo {
+    width: 30px;
+    height: 30px;
 }

@@ -4,6 +4,7 @@
     <th>Title</th>
     <th>Artist</th>
     <th><mat-icon>timer</mat-icon></th>
+    <th></th>
   </tr>
   <tr *ngFor="let track of tracks">
     <td>
@@ -25,5 +26,10 @@
     </td>
     <td class="author">{{track.author}}</td>
     <td>{{track.duration | trackTime:"ms"}}</td>
+    <td>
+      <img class="originLogo" *ngIf="track.origin==='Spotify'" src="assets/images/spotify.png">
+      <img class="originLogo" *ngIf="track.origin==='Deezer'" src="assets/images/deezer.png">
+      <img class="originLogo" *ngIf="track.origin==='Jamendo'" src="assets/images/jamendo.png">
+    </td>
   </tr>
 </table>
